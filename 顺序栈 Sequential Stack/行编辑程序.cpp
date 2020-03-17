@@ -53,6 +53,8 @@ Status LineEdit(){
     }
     //遍历栈，打印入文件
     StackTraverse(s, Sprint, f);
+    fclose(f);
+    f = fopen("data.txt","a+");
     //非空行->换行
     if(!StackEmpty(s)) fprintf(f, "\n");
     //清空栈
