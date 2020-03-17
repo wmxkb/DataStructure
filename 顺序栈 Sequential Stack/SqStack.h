@@ -11,6 +11,7 @@
 #define False 0
 //定义元素类型
 typedef int Elemtype;
+//typedef char Elemtype;
 //定义状态类型
 typedef int Status;
 //顺序栈结构定义
@@ -128,9 +129,9 @@ Status Pop(SqStack &S, Elemtype &e){
 }
 
 //遍历栈，调用visit函数
-Status StackTraverse(SqStack S, Status(*visit)(Elemtype* )){
+Status StackTraverse(SqStack S, Status(*visit)(Elemtype* /*,FILE* f*/)/*, FILE* f*/){
     for(Elemtype* p = S.base; p < S.top ; ++p){
-        Status s = visit(p);
+        Status s = visit(p/*, f*/);
         if(s != OK){
             printf("ERROR: StackTraverse False");
             return ERROR;
