@@ -4,7 +4,7 @@
 *注意需要修改头文件中栈的元素类型至char
 *因为该程序为了简便，修改了StackTraverse的传参
 *已在头文件对应地方加上注释
-**/
+*/
 //函数声明
 Status LineEdit();
 Status Sprint();

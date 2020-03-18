@@ -9,7 +9,16 @@
 #define ERROR 0
 #define True 1
 #define False 0
+//定义结构体存储坐标
+/*
+typedef struct{
+  //坐标范围：0~N-1
+  int x;
+  int y;
+}Pos;
 //定义元素类型
+typedef Pos Elemtype;
+*/
 typedef int Elemtype;
 //typedef char Elemtype;
 //定义状态类型
@@ -129,9 +138,12 @@ Status Pop(SqStack &S, Elemtype &e){
 }
 
 //遍历栈，调用visit函数
-Status StackTraverse(SqStack S, Status(*visit)(Elemtype* /*,FILE* f*/)/*, FILE* f*/){
+Status StackTraverse(SqStack S, Status(*visit)(Elemtype* /*,FILE* f*/, int, int)/*, FILE* f*/,int i, int j){
     for(Elemtype* p = S.base; p < S.top ; ++p){
-        Status s = visit(p/*, f*/);
+        Status s = visit(p/*, f*/, i, j);
+        if(s == 2){
+          return 2;
+        }
         if(s != OK){
             printf("ERROR: StackTraverse False");
             return ERROR;
