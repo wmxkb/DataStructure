@@ -138,12 +138,14 @@ Status Pop(SqStack &S, Elemtype &e){
 }
 
 //遍历栈，调用visit函数
-Status StackTraverse(SqStack S, Status(*visit)(Elemtype* /*,FILE* f*/, int, int)/*, FILE* f*/,int i, int j){
+Status StackTraverse(SqStack S, Status(*visit)(Elemtype* /*,FILE* f*//*, int, int*/)/*, FILE* f*//*,int i, int j*/){
     for(Elemtype* p = S.base; p < S.top ; ++p){
-        Status s = visit(p/*, f*/, i, j);
+        Status s = visit(p/*, f*//*, i, j*/);
+        /*
         if(s == 2){
           return 2;
         }
+        */
         if(s != OK){
             printf("ERROR: StackTraverse False");
             return ERROR;
