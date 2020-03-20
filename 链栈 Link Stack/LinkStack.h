@@ -119,6 +119,7 @@ Status StackTraverse(LinkStack &S, Status (*visit)(Elemtype)){
   LinkStackPtr p = S.top -> next;
   while(p != NULL){
     visit(p -> data);
+    p = p -> next;
   }
   printf("\n");
   return OK;
